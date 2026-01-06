@@ -27,3 +27,7 @@ replay_pid*
 .idea
 .vscode
 
+# Environment files (DO NOT COMMIT CREDENTIALS)
+.env
+.env.local
+.env.*.local

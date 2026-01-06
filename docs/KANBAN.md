@@ -11,13 +11,6 @@
 ## 📝 To Do
 
 
-### PB-003: Login e JWT (`/login`)
-- **Estimativa**: 2 dias
-- **Critérios de Aceite**:
-  - [ ] Validar credenciais.
-  - [ ] Gerar Token JWT com claims (roles).
-  - [ ] Retornar Token no body ou header.
-
 
 ### PB-025: API Gateway Config
 - **Estimativa**: 1 dia
@@ -36,56 +29,47 @@
 
 ## 🔍 Code Review
 
-### PB-003: Login e JWT (`/login`)
-- **Estimativa**: 2 dias
-- **Branch**: `feat/PB-003-auth-login`
-- **Critérios de Aceite**:
-  - [x] Validar credenciais (email/senha).
-  - [x] Gerar Token JWT com 1h de validade.
-  - [x] Incluir claims: `sub` (email), `roles`.
-- **Testes**:
-  - [x] Unitário: Validar geração de token.
-  - [x] Integração: Endpoint `/login` (Verificado manualmente).
-
-
-### PB-002: Cadastro de usuários (`/register`)
-- **Estimativa**: 2 dias
-- **Branch**: `feat/PB-002-user-register`
-- **Critérios de Aceite**:
-  - [x] Validar campos obrigatórios (email, senha).
-  - [x] Encriptar senha antes de salvar.
-  - [x] Retornar 201 Created.
-- **Testes**:
-  - [x] Unitário: Service (mock repository).
-  - [x] Integração: Controller -> Database (H2 ou Testcontainers).
-
 *(Nenhum item em review no momento)*
 
-### PB-004: Configuração de Segurança (Spring Security)
-- **Estimativa**: 3 dias
-- **Branch**: `feat/PB-004-security-config`
-- **Critérios de Aceite**:
-  - [x] Implementar `JwtAuthenticationFilter`.
-  - [x] Validar token em rotas protegidas.
-  - [x] Configurar sessão como STATELESS.
-- **Testes**:
-  - [x] Unitário: Filter.
-  - [x] Integração: Tentar acessar rota sem token (403) (Manual).
-
-
-### PB-001: Setup inicial `user-service`
-- **Início**: 05/01/2026
-- **Responsável**: Lucas
-- **Branch**: `feat/PB-001-setup-user-service`
-- **Checklist de Implementação**:
-  - [x] Criar estrutura do projeto (Spring Initializr/Manual).
-  - [x] Configurar `pom.xml` (JPA, Security, Lombok).
-  - [x] Configurar `application.yaml` (Conexão DB).
-  - [x] Criar pacote `com.lucasgrf.userservice`.
-  - [x] Rodar aplicação sem erros.
 ---
 
 ## ✅ Done
+
+### PB-001: Setup inicial `user-service`
+- **Concluído em**: 06/01/2026
+- **Branch**: `feat/PB-001-setup-user-service` (Merged)
+- **O que foi feito**:
+  - Estrutura do projeto criada.
+  - `pom.xml` configurado (JPA, Security, Lombok, JWT).
+  - `application.yaml` configurado (Conexão DB PostgreSQL).
+  - Pacote `com.lucasgrf.userservice` criado.
+
+### PB-002: Cadastro de usuários (`/register`)
+- **Concluído em**: 06/01/2026
+- **Branch**: `feat/PB-002-user-register` (Merged)
+- **O que foi feito**:
+  - Endpoint `POST /api/v1/auth/register` implementado.
+  - Validação de campos obrigatórios.
+  - Senha encriptada com BCrypt.
+  - Retorna 201 Created com UUID do usuário.
+
+### PB-003: Login e JWT (`/login`)
+- **Concluído em**: 06/01/2026
+- **Branch**: `feat/PB-003-auth-login` (Merged)
+- **O que foi feito**:
+  - Endpoint `POST /api/v1/auth/login` implementado.
+  - Validação de credenciais (email/senha).
+  - Geração de JWT com claims (`sub`, `roles`).
+  - Token válido por 1 hora.
+
+### PB-004: Configuração de Segurança (Spring Security)
+- **Concluído em**: 06/01/2026
+- **Branch**: `feat/PB-004-security-config` (Merged)
+- **O que foi feito**:
+  - `JwtAuthenticationFilter` implementado.
+  - Validação de token em rotas protegidas.
+  - Sessão configurada como STATELESS.
+  - Endpoint `/me` para verificação de autenticação.
 
 ### PB-026: Subir ambiente local (Docker Compose)
 - **Concluído em**: 05/01/2026
